@@ -17,3 +17,9 @@ local function chooseserver()
 end
 
 vim.keymap.set("n", "<leader>ps", chooseserver, { desc = "Choose server" })
+vim.keymap.set("n", "<leader>gj", function()
+  Snacks.terminal("jjui")
+end, { desc = "JJ-UI" })
+vim.keymap.set("n", "<leader>gJ", function()
+  Snacks.terminal("lazyjj")
+end, { desc = "LazyJJ" })
