@@ -1,1 +1,8 @@
-/home/ezechukwu69/.config/omarchy/current/theme/neovim.lua
+return {
+    {
+        "wtfox/jellybeans.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {}, -- Optional
+    }
+}
