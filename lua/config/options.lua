@@ -18,6 +18,7 @@ vim.opt.ttyfast = true
 vim.opt.showmatch = true
 vim.opt.ignorecase = true
 vim.opt.pumborder = 'rounded'
+vim.o.winborder = 'rounded'
 vim.opt.cmdheight = 0
 vim.opt.splitright = true
 vim.opt.splitbelow = true
