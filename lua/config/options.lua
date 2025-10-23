@@ -22,6 +22,7 @@ vim.o.winborder = 'rounded'
 vim.opt.cmdheight = 1
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.cmd("set laststatus=3")
 vim.api.nvim_set_hl(0, 'Pmenu', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'PmenuBorder', { bg = 'NONE', fg = "#CC6600" })
 
