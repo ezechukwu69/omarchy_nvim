@@ -23,3 +23,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
         vim.api.nvim_buf_set_keymap(bufnr, "n", "q", "<cmd>DiffviewClose<cr>", { noremap = true, silent = true })
     end
 })
+
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+    -- pattern = { "grep", "vimgrep" },
+    callback = function()
+        vim.cmd.cwindow()
+    end,
+    desc = "Open quickfix window after grep",
+})

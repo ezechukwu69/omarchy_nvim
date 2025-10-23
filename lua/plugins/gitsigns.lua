@@ -58,10 +58,10 @@ return {
                 map('n', '<leader>hQ', function() gitsigns.setqflist('all') end, { desc = 'Set QF List for all' })
                 map('n', '<leader>hq', gitsigns.setqflist, { desc = 'Set QF List' })
                 -- Text object
-                map({ 'o', 'x' }, 'hh', gitsigns.select_hunk, { desc = 'Select Hunk' })
+                map({ 'o', 'x' }, '<leader>hh', gitsigns.select_hunk, { desc = 'Select Hunk' })
 
-                map("n", 'hvv', "<cmd>DiffviewOpen<cr>", { desc = 'Diff View open' })
-                map("n", 'hvh', "<cmd>DiffviewFileHistory<cr>", { desc = 'Diff View History' })
+                map("n", '<leader>hvv', "<cmd>DiffviewOpen<cr>", { desc = 'Diff View open' })
+                map("n", '<leader>hvh', "<cmd>DiffviewFileHistory<cr>", { desc = 'Diff View History' })
 
                 -- Toggles
                 map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Toggle Current Line Blame' })
