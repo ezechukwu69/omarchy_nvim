@@ -9,7 +9,7 @@ return {
                 -- Customize colors if desired
                 modified = { fg = "#89ddff" },
             },
-            describe_editor = "input",     -- Use simple input mode
+            describe_editor = "input", -- Use simple input mode
         })
 
         -- Use the exposed functions directly from the main module
