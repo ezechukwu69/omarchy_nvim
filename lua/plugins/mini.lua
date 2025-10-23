@@ -13,7 +13,7 @@ return {
         },
         { "<leader><space>", function() MiniPick.builtin.files() end,                                   desc = "Smart Find Files" },
         { "<leader>,",       function() MiniPick.builtin.buffers() end,                                 desc = "Buffers" },
-        { "<leader>/",       function() MiniPick.builtin.grep_live() end,                               desc = "Grep" },
+        -- { "<leader>/",       function() MiniPick.builtin.grep_live() end,                               desc = "Grep" },
         { "<leader>:",       function() MiniExtra.pickers.history({ scope = ":" }) end,                 desc = "Command History" },
         -- { "<leader>n",       function() MiniPick.builtin.notifications() end,                           desc = "Notification History" },
         -- { "<leader>e",       function() MiniPick.explorer() end,                                       desc = "File Explorer" },
@@ -21,7 +21,7 @@ return {
         { "<leader>fb",      function() MiniPick.builtin.buffers() end,                                 desc = "Buffers" },
         { "<leader>fc",      function() MiniPick.builtin.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
         { "<leader>ff",      function() MiniPick.builtin.files() end,                                   desc = "Find Files" },
-        { "<leader>fg",      function() MiniPick.builtin.git_files() end,                               desc = "Find Git Files" },
+        { "<leader>fg",      function() MiniPick.builtin.files({ tool = "git" }) end,                   desc = "Find Git Files" },
         { "<leader>fp",      function() Snacks.picker.projects() end,                                   desc = "Projects" },
         { "<leader>fr",      function() MiniExtra.pickers.oldfiles() end,                               desc = "Recent" },
         -- git
@@ -32,7 +32,7 @@ return {
         -- Grep
         { "<leader>sb",      function() MiniExtra.pickers.buf_lines() end,                              desc = "Buffer Lines" },
         { "<leader>sB",      function() MiniPick.builtin.buffers() end,                                 desc = "Grep Open Buffers" },
-        { "<leader>sg",      function() MiniPick.builtin.grep_live() end,                               desc = "Grep" },
+        -- { "<leader>sg",      function() MiniPick.builtin.grep_live() end,                               desc = "Grep" },
         -- search
         { '<leader>s"',      function() MiniExtra.pickers.registers() end,                              desc = "Registers" },
         { '<leader>s/',      function() MiniExtra.pickers.history({ scope = "search" }) end,            desc = "Search History" },
@@ -74,6 +74,9 @@ return {
 
                 { mode = "n", keys = "g" },
                 { mode = "x", keys = "g" },
+
+                { mode = "n", keys = "d" },
+                { mode = "x", keys = "d" },
 
                 { mode = "n", keys = '"' },
                 { mode = "x", keys = '"' },
@@ -130,7 +133,6 @@ return {
         })
         require("mini.bufremove").setup()
         require("mini.jump").setup()
-        -- require("mini.jump2d").setup()
         require('mini.indentscope').setup()
         require('mini.statusline').setup()
         require('mini.tabline').setup()
