@@ -10,6 +10,7 @@ return {
                 rust       = { "rustfmt", lsp_format = "fallback" },
                 -- Conform will run the first available formatter
                 javascript = { "prettier", stop_after_first = true },
+                typescript = { "prettier", stop_after_first = true },
                 vue        = { "prettier" },
             },
             format_on_save = {

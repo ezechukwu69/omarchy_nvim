@@ -24,7 +24,7 @@ return {
         },
         debugger = {
           enabled = true,
-          exception_breakpoints = { "raised", "user-unhandled" },
+          exception_breakpoints = {},
         },
         dev_tools = {
           autostart = true,
@@ -58,7 +58,7 @@ return {
               },
             },
           }
-          require("dap.ext.vscode").load_launchjs()
+          -- require("dap.ext.vscode").load_launchjs()
         end,
         widget_guides = {
           enabled = true,

@@ -4,13 +4,13 @@ return {
     lazy = false,
     keys = {
         { "<leader>hi", function() MiniDiff.toggle_overlay() end, desc = "Diff Toggle Overlay" },
-        {
-            "<leader>e",
-            function()
-                MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
-            end,
-            desc = "Open files"
-        },
+        -- {
+        --     "<leader>e",
+        --     function()
+        --         MiniFiles.open(vim.api.nvim_buf_get_name(0), false)
+        --     end,
+        --     desc = "Open files"
+        -- },
         -- { "<leader><space>", function() MiniPick.builtin.files() end,                                   desc = "Smart Find Files" },
         -- { "<leader>,",       function() MiniPick.builtin.buffers() end,                                 desc = "Buffers" },
         -- { "<leader>/",       function() MiniPick.builtin.grep_live() end,                               desc = "Grep" },
@@ -104,64 +104,66 @@ return {
     config = function()
         require('mini.pairs').setup()
         require('mini.ai').setup()
-        local miniclue = require('mini.clue')
-        miniclue.setup({
-            triggers = {
-                { mode = "n", keys = "<Leader>" },
-                { mode = "x", keys = "<Leader>" },
-
-                { mode = "i", keys = "<C-x>" },
-
-                { mode = "n", keys = "g" },
-                { mode = "x", keys = "g" },
-
-                { mode = "n", keys = '"' },
-                { mode = "x", keys = '"' },
-                { mode = "i", keys = '<C-r>' },
-                { mode = "c", keys = '<C-r>' },
-
-                { mode = "n", keys = "<C-w>" },
-
-                { mode = "n", keys = "z" },
-                { mode = "x", keys = "z" },
-            },
-            clues = {
-                { mode = "n", keys = "<Leader>a", desc = "+AI" },
-                { mode = "n", keys = "<Leader>b", desc = "+Buffers" },
-                { mode = "n", keys = "<Leader>c", desc = "+Code" },
-                { mode = "x", keys = "<Leader>a", desc = "+AI" },
-                { mode = "n", keys = "<Leader>d", desc = "+Debugger" },
-                { mode = "x", keys = "<Leader>d", desc = "+Debugger" },
-                { mode = "n", keys = "<Leader>g", desc = "+Git" },
-                { mode = "x", keys = "<Leader>g", desc = "+Git" },
-                { mode = "n", keys = "<Leader>j", desc = "+JJ" },
-                { mode = "n", keys = "<Leader>h", desc = "+Highlight" },
-                { mode = "x", keys = "<Leader>h", desc = "+Highlight" },
-                { mode = "n", keys = "<Leader>s", desc = "+Search" },
-                { mode = "x", keys = "<Leader>s", desc = "+Search" },
-                { mode = "n", keys = "<Leader>f", desc = "+Find" },
-                { mode = "x", keys = "<Leader>f", desc = "+Find" },
-                { mode = "n", keys = "<Leader>t", desc = "+Toggle" },
-                { mode = "n", keys = "<Leader>u", desc = "+Toggle UI" },
-                miniclue.gen_clues.builtin_completion(),
-                miniclue.gen_clues.g(),
-                miniclue.gen_clues.marks(),
-                miniclue.gen_clues.registers(),
-                miniclue.gen_clues.windows({ submode_resize = true }),
-                miniclue.gen_clues.z(),
-            },
-            window = {
-                -- Floating window config
-                config = {},
-
-                -- Delay before showing clue window
-                delay = 100,
-
-                -- Keys to scroll inside the clue window
-                scroll_down = '<C-d>',
-                scroll_up = '<C-u>',
-            },
-        })
+        -- local miniclue = require('mini.clue')
+        -- miniclue.setup({
+        --     triggers = {
+        --         { mode = "n", keys = "<Leader>" },
+        --         { mode = "x", keys = "<Leader>" },
+        --
+        --         { mode = "n", keys = "\\" },
+        --
+        --         { mode = "i", keys = "<C-x>" },
+        --
+        --         { mode = "n", keys = "g" },
+        --         { mode = "x", keys = "g" },
+        --
+        --         { mode = "n", keys = '"' },
+        --         { mode = "x", keys = '"' },
+        --         { mode = "i", keys = '<C-r>' },
+        --         { mode = "c", keys = '<C-r>' },
+        --
+        --         { mode = "n", keys = "<C-w>" },
+        --
+        --         { mode = "n", keys = "z" },
+        --         { mode = "x", keys = "z" },
+        --     },
+        --     clues = {
+        --         { mode = "n", keys = "<Leader>a", desc = "+AI" },
+        --         { mode = "n", keys = "<Leader>b", desc = "+Buffers" },
+        --         { mode = "n", keys = "<Leader>c", desc = "+Code" },
+        --         { mode = "x", keys = "<Leader>a", desc = "+AI" },
+        --         { mode = "n", keys = "<Leader>d", desc = "+Debugger" },
+        --         { mode = "x", keys = "<Leader>d", desc = "+Debugger" },
+        --         { mode = "n", keys = "<Leader>g", desc = "+Git" },
+        --         { mode = "x", keys = "<Leader>g", desc = "+Git" },
+        --         { mode = "n", keys = "<Leader>j", desc = "+JJ" },
+        --         { mode = "n", keys = "<Leader>h", desc = "+Highlight" },
+        --         { mode = "x", keys = "<Leader>h", desc = "+Highlight" },
+        --         { mode = "n", keys = "<Leader>s", desc = "+Search" },
+        --         { mode = "x", keys = "<Leader>s", desc = "+Search" },
+        --         { mode = "n", keys = "<Leader>f", desc = "+Find" },
+        --         { mode = "x", keys = "<Leader>f", desc = "+Find" },
+        --         { mode = "n", keys = "<Leader>t", desc = "+(Toggle | Test)" },
+        --         { mode = "n", keys = "<Leader>u", desc = "+Toggle UI" },
+        --         miniclue.gen_clues.builtin_completion(),
+        --         miniclue.gen_clues.g(),
+        --         miniclue.gen_clues.marks(),
+        --         miniclue.gen_clues.registers(),
+        --         miniclue.gen_clues.windows({ submode_resize = true }),
+        --         miniclue.gen_clues.z(),
+        --     },
+        --     window = {
+        --         -- Floating window config
+        --         config = {},
+        --
+        --         -- Delay before showing clue window
+        --         delay = 100,
+        --
+        --         -- Keys to scroll inside the clue window
+        --         scroll_down = '<C-d>',
+        --         scroll_up = '<C-u>',
+        --     },
+        -- })
         require('mini.diff').setup({
             view = {
                 style = "sign",
@@ -169,10 +171,34 @@ return {
             }
         })
         require("mini.bufremove").setup()
-        require("mini.jump").setup()
+        -- require("mini.jump").setup()
         -- require("mini.jump2d").setup()
         require('mini.indentscope').setup()
-        require('mini.statusline').setup()
+        require('mini.statusline').setup({
+            content = {
+                active = function()
+                    local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 120 })
+                    local git           = MiniStatusline.section_git({ trunc_width = 40 })
+                    local diff          = MiniStatusline.section_diff({ trunc_width = 75 })
+                    local diagnostics   = MiniStatusline.section_diagnostics({ trunc_width = 75 })
+                    local lsp           = MiniStatusline.section_lsp({ trunc_width = 75 })
+                    local filename      = MiniStatusline.section_filename({ trunc_width = 140 })
+                    local fileinfo      = MiniStatusline.section_fileinfo({ trunc_width = 120 })
+                    local location      = MiniStatusline.section_location({ trunc_width = 75, })
+                    local search        = MiniStatusline.section_searchcount({ trunc_width = 20 })
+
+                    return MiniStatusline.combine_groups({
+                        { hl = mode_hl,                 strings = { mode } },
+                        { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
+                        '%<', -- Mark general truncate point
+                        -- { hl = 'MiniStatuslineFilename', strings = { filename } },
+                        '%=', -- End left alignment
+                        { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+                        { hl = mode_hl,                  strings = { search, location } },
+                    })
+                end
+            }
+        })
         require('mini.tabline').setup()
         require('mini.surround').setup()
         require('mini.files').setup()

@@ -64,8 +64,9 @@ return {
                 map("n", '<leader>hvh', "<cmd>DiffviewFileHistory<cr>", { desc = 'Diff View History' })
 
                 -- Toggles
-                map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Toggle Current Line Blame' })
-                map('n', '<leader>tw', gitsigns.toggle_word_diff, { desc = 'Toggle Word Diff' })
+                map('n', '<leader>hb', gitsigns.blame_line, { desc = 'Blame currency line' })
+                map('n', '<leader>hB', gitsigns.blame, { desc = 'Toggle blame outline' })
+                map('n', '<leader>hw', gitsigns.toggle_word_diff, { desc = 'Toggle Word Diff' })
             end
         }
     end

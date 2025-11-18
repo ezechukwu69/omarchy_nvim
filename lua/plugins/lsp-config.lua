@@ -8,7 +8,7 @@ end
 return {
     "neovim/nvim-lspconfig",
     config = function(_, opts)
-        local servers = { "lua_ls", "vtsls", "vue_ls", "v_analyzer" }
+        local servers = { "lua_ls", "vtsls", "vue_ls", "v_analyzer", "elixirls", "gopls", "zls" }
         for _, server in ipairs(servers) do
             if server == "vue_ls" then
                 local ok, result = pcall(vim.system,
