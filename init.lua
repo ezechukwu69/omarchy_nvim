@@ -9,10 +9,12 @@ require("config.lazy")
 require("config.options")
 require("config.mappings")
 require("config.autocmd")
+require("custom")
 
 -- vim.cmd("colorscheme onedark_dark")
 -- vim.cmd("colorscheme base16-black-metal-gorgoroth")
-vim.cmd("colorscheme base16-kanagawa-dragon")
+-- vim.cmd("colorscheme base16-kanagawa-dragon")
+vim.cmd("colorscheme rose-pine-main")
 -- vim.cmd("colorscheme cyberdream")
 -- vim.cmd("colorscheme oxocarbon")
 --
